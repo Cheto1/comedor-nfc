@@ -152,13 +152,7 @@
       alert(`Asistencia marcada para ${nombre}`);
     }
 
-    // Simulación de lectura NFC
-    setTimeout(() => {
-      // Simular que leímos una etiqueta NFC con ID "nfc123"
-      const idSimulado = "nfc123";
-      mostrarDatosPersona(idSimulado);
-    }, 1000);
-
+  
     // 🔒 Implementación real con Web NFC (solo en HTTPS y Android Chrome)
   
     if ("NDEFReader" in window) {
