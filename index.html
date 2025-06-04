@@ -145,6 +145,28 @@
         alert("ID no reconocido.");
       }
     }
+        setTimeout(() => {
+      // Simular que leímos una etiqueta NFC con ID "nfc456"
+      const idSimulado = "nfc456";
+      mostrarDatosPersona(idSimulado);
+    }, 1000);
+    setTimeout(() => {
+      // Simular que leímos una etiqueta NFC con ID "nfc789"
+      const idSimulado = "nfc789";
+      mostrarDatosPersona(idSimulado);
+    }, 1000);
+    setTimeout(() => {
+      // Simular que leímos una etiqueta NFC con ID "nfc123"
+      const idSimulado = "nfc123";
+      mostrarDatosPersona(idSimulado);
+    }, 1000);
+    // Acción del botón
+    function marcarAsistencia() {
+      const nombre = document.getElementById("nombre").textContent;
+      alert(`Asistencia marcada para ${nombre}`);
+    }
+ 
+
 
     // Acción del botón
     function marcarAsistencia() {
