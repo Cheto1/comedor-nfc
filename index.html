@@ -115,7 +115,7 @@
 
   <script>
     // Simulación de base de datos por ID NFC
-    const personas = {
+    const baseDatos = {
       "nfc123": {
         nombre: "Juan Pérez",
         foto: "https://via.placeholder.com/100?text=Juan",
@@ -134,8 +134,8 @@
     };
 
     // Función para cargar datos
-    function personas(idNFC) {
-      const datos = personas[idNFC];
+    function mostrarDatosPersona(idNFC) {
+      const datos = baseDatos[idNFC];
       if (datos) {
         document.getElementById("nombre").textContent = datos.nombre;
         document.getElementById("foto").src = datos.foto;
