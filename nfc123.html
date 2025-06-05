@@ -110,16 +110,16 @@
         <div class="alergias" id="alergias"></div>
       </div>
     </div>
-    <button class="boton-asistencia" onclick="marcarAsistencia()">Marcar Asistencia</button>
+    <button id="cerrar" class="boton-asistencia" onclick="marcarAsistencia()">Marcar Asistencia</button>
   </div>
 
   <script>
     // Simulación de base de datos por ID NFC
     const personas = {
-      "nfc123": {
-        nombre: "Juan Pérez",
-        foto: "https://via.placeholder.com/100?text=Juan",
-        alergias: ["Penicilina", "Mariscos"]
+      "nfc456": {
+        nombre: "Pablo de hoyos",
+        foto: "https://via.placeholder.com/100?text=Ana",
+        alergias: ["Nueces, anacardos y pistachos"]
       },
     };
 
@@ -138,7 +138,7 @@
 
     setTimeout(() => {
       // Simular que leímos una etiqueta NFC con ID "nfc123"
-      const idSimulado = "nfc123";
+      const idSimulado = "nfc456";
       mostrarDatosPersona(idSimulado);
     }, 1000);
     
@@ -147,32 +147,13 @@
       const nombre = document.getElementById("nombre").textContent;
       alert(`Asistencia marcada para ${nombre}`);
     }
+
+    document.getElementById("cerrar").addEventListener("click", function marcarAsistencia() {
+            setTimeout(function() {
+                window.close();
+            }, 5000); 
+          });
  
-
-
-    // 🔒 Implementación real con Web NFC (solo en HTTPS y Android Chrome)
-
-
-    if ("NDEFReader" in window) {
-      const nfc = new NDEFReader();
-      nfc.scan().then(() => {
-        nfc.onreading = event => {
-          const decoder = new TextDecoder();
-          for (const record of event.message.records) {
-            if (record.recordType === "text") {
-              const idNFC = decoder.decode(record.data);
-              mostrarDatosPersona(idNFC);
-            }
-          }
-        };
-      }).catch(error => {
-        console.error("Error leyendo NFC:", error);
-      });
-    } else {
-      console.warn("Web NFC no soportado en este navegador.");
-    }
-
-
   </script>
 
 </body>
